@@ -1,0 +1,5 @@
+rootProject.name = 'API-Gateway'
+
+include 'Gateway'
+include 'Checkout'
+

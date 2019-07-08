@@ -1,0 +1,41 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.21.RELEASE'
+	}
+}
+
+plugins {
+	id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+
+group = 'com.sk.learn'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "Edgware.SR6")
+}
+
+dependencies {
+	compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	compile 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-sleuth-zipkin'
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+	compile("org.springframework.boot:spring-boot-starter-security")
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

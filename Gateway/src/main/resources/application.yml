@@ -1,0 +1,48 @@
+server:
+  port: 9095
+
+security.basic.enabled: false
+
+spring:
+  application:
+    name: gateway
+    sleuth:
+      enabled: true
+    zipkin:
+      enabled: false
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true
+  security:
+    user:
+      name: sushant
+      password: kumar
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+zuul:
+  routes:
+    checkout:
+      path: /checkout/**
+      #url: http://localhost:9091/orders
+      serviceId: checkout
+      stripPrefix: false
+
+gateway:
+  enablePreRequestFilter: true
+  enablePreRequestFilterTwo: true
+  enableRouteRequestFilter: true
+  enablePostRequestFilter: true
+  enableErrorFilter: false
+  clientId: learning_thursday_zuul
+
+logging:
+  level:
+    com.sk.learn: 'DEBUG'
+

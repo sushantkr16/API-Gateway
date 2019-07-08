@@ -1,0 +1,26 @@
+server:
+  port: 9094
+  contextPath: /checkout
+
+spring:
+  application:
+    name: checkout
+    sleuth:
+      enabled: true
+    zipkin:
+      enabled: false
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+logging:
+  level:
+    com.sk.learn: 'DEBUG'
