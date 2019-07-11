@@ -1,5 +1,5 @@
 server:
-  port: 9095
+  port: 9090
 
 security.basic.enabled: false
 
@@ -35,6 +35,7 @@ zuul:
       stripPrefix: false
 
 gateway:
+  enableCustomBalancer: true
   enablePreRequestFilter: true
   enablePreRequestFilterTwo: true
   enableRouteRequestFilter: true

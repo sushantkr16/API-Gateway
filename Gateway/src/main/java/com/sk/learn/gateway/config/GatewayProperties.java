@@ -17,4 +17,5 @@ public class GatewayProperties {
     private boolean enablePostRequestFilter = true;
     private boolean enableErrorFilter = true;
     private String clientId = "learning_thursday";
+    private boolean enableCustomBalancer = true;
 }
